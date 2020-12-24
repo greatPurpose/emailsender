@@ -9,23 +9,14 @@ const app = express();
 const bodyParser = require('body-parser');
 const nodemailer = require("nodemailer");
 
-const router = express.Router();
-app.get('/', (req, res) => {
-});
-
 app.post('/book', cors(), (req, res) =>{ 
   console.log('checking....');
   mail(req, res); 
   res.json({ postBody: req.body })
 });
 
-app.post('/', (req, res) => {
-});
-
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 async function mail(req, res) {
 
