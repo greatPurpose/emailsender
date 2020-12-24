@@ -39,8 +39,8 @@ async function mail(req, res) {
   
       // Create a SMTP transporter object
       let transporter = nodemailer.createTransport({
-          host: account.smtp.host,
-          port: account.smtp.port,
+          host: 'smtp.gmail.com',
+          port: 465,
           secure: account.smtp.secure,
           auth: {
               user: account.user,
